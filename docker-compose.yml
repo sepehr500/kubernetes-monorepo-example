@@ -4,7 +4,7 @@ volumes:
         driver: local
 services: 
   server:
-    image: 534926629739.dkr.ecr.us-east-1.amazonaws.com/mono-server:latest
+    image: sepehr500/mono-server-example:latest
     build: ./server
     volumes: 
       - ./server/src:/app/src 
