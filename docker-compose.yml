@@ -4,9 +4,9 @@ volumes:
         driver: local
 services: 
   server:
+    image: 534926629739.dkr.ecr.us-east-1.amazonaws.com/mono-server:latest
     build: ./server
     volumes: 
       - ./server/src:/app/src 
     ports:
       - "8080:8080"
-    command: npm run dev
