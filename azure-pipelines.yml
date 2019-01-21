@@ -5,6 +5,8 @@ pool:
 
 steps:
 - script: |
+    echo $dockerId
+    echo $pswd
     docker login -u $dockerId -p $pswd
     docker-compose build
     docker-compose push
