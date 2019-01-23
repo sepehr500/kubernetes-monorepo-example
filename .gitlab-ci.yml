@@ -22,10 +22,11 @@ deploy:
   image: microsoft/azure-cli
   stage: deploy
   variables:
-    azureUsername: $azureUsername
-    azurePassword: $azurePassword
+    userName: $principalName
+    password: $principalPassword
+    tenant: $principalTenant
   script: | 
-    az login -u $azureUsername -p $azurePassword
+    az login --service-principal -u $userName -p $password --tenant $tenant
     az aks install-cli
     az aks list
     az aks get-credentials --resource-group kubernetes-monorepo --name kubernetes-mono
