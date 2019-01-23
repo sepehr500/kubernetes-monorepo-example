@@ -9,7 +9,7 @@ services:
     volumes: 
       - ./server/src:/app/src 
     ports:
-      - "8080:8080"
+      - "30576:8080"
   frontend:
     image: sepehr500/mono-frontend-example:latest
     container_name: frontend
