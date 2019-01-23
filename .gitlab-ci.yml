@@ -1,15 +1,13 @@
-image: docker:git
-services:
-  - docker:dind
-
-before_script:
-  - apk add --no-cache py-pip
-  - pip install docker-compose
-
 stages: 
   - build
   - deploy
 build:
+  image: docker:git
+  services:
+    - docker:dind
+  before_script:
+    - apk add --no-cache py-pip
+    - pip install docker-compose
   stage: build
   variables:
     dockerId: $dockerId
@@ -26,6 +24,10 @@ deploy:
   variables:
     azureUsername: $azureUsername
     azurePassword: $azurePassword
-  script: az login -u $azureUsername -p $azurePassword
+  script: | 
+    az login -u $azureUsername -p $azurePassword
+    az aks install-cli
+    az aks get-credentials --resource-group kubernetes-monorepo --name kubernetes-mono
+    kubectl get nodes
 
 
