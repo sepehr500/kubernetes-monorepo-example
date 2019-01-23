@@ -27,6 +27,7 @@ deploy:
   script: | 
     az login -u $azureUsername -p $azurePassword
     az aks install-cli
+    az aks list
     az aks get-credentials --resource-group kubernetes-monorepo --name kubernetes-mono
     kubectl get nodes
 
