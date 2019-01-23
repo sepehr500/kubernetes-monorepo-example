@@ -20,5 +20,12 @@ build:
     docker login -u $dockerId -p $dockerPassword
     docker-compose build
     docker-compose push
+deploy:
+  image: microsoft/azure-cli
+  stage: deploy
+  variables:
+    azureUsername: $azureUsername
+    azurePassword: $azurePassword
+  script: az login -u $azureUsername -p $azurePassword
 
 
