@@ -30,6 +30,6 @@ deploy:
     az aks install-cli
     az aks list
     az aks get-credentials --resource-group kubernetes-monorepo --name kubernetes-mono
-    kubectl get nodes
+    kubectl apply -f ./server/deploy-server.yml
 
 
