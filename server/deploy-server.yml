@@ -13,13 +13,13 @@ spec:
     metadata:
       labels:
         app: mono-server
-        version: '3'
+        version: '4'
     spec:
       containers:
       - name: mono-server
         image: sepehr500/mono-server-example:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 30576
 ---
 apiVersion: v1
 kind: Service
@@ -30,7 +30,7 @@ spec:
   - port: 30576
   selector:
     app: mono-server
-    version: '3'
+    version: '4'
 ---
 apiVersion: v1
 kind: Service
@@ -42,7 +42,7 @@ spec:
   - port: 80
   selector:
     app: mono-frontend
-    version: '3'
+    version: '4'
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -57,7 +57,7 @@ spec:
     metadata:
       labels:
         app: mono-frontend
-        version: '3'
+        version: '4'
     spec:
       containers:
       - name: mono-frontend
