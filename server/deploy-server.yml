@@ -26,6 +26,7 @@ kind: Service
 metadata:
   name: mono-server
 spec:
+  type: LoadBalancer
   ports:
   - port: 30576
   selector:
