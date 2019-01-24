@@ -6,8 +6,8 @@ services:
   server:
     image: sepehr500/mono-server-example:latest
     build: ./server
-    volumes: 
-      - ./server/src:/app/src 
+    # volumes: 
+      # - ./server/src:/app/src 
     ports:
       - "30576:8080"
   frontend:
